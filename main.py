@@ -1,6 +1,7 @@
 #!/bin/python3
 
 import psycopg2
+import psycopg2.extras
 from psycopg2 import Error
 
 connection = None
@@ -11,13 +12,17 @@ try:
                                   port="6969",
                                   database="distromachines")
 
-    cursor = connection.cursor()
+    cursor = connection.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
 
     cursor.execute("SELECT * FROM empresa")
     resultado = cursor.fetchall()
-    print("RESULTADO CHIDO: ", resultado)
+
+    for elemento in resultado:
+        print("id: ", elemento["empresa_id"])
+
 except (Exception, Error) as error:
     print("No se pudo conectar a la base de datos:", error)
+
 finally:
     if connection:
         cursor.close()
