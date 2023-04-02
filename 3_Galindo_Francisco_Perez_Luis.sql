@@ -46,7 +46,6 @@ create table cuenta_bancaria (
 create table contrato (
 	contrato_id numeric(10, 0) default nextval('contrato_seq'),
 	vigencia date not null,
-	clave varchar(10) not null,
 	empresa_id numeric(10, 0) not null,
 	constraint empresa_contrato_fk
 		foreign key (empresa_id)

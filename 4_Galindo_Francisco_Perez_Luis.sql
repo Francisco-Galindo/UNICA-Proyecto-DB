@@ -56,14 +56,13 @@ with expanded as (
 ), shuffled as (
 	select
 	date(current_date + (random() * 365 * 5)::int) as vigencia,
-	'BORRAME' as clabe,
 	e.empresa_id
 	from expanded e
 	inner join (
 		select ei.seq, MIN(ei.random) from expanded ei group by ei.seq
 	) em ON (e.seq = em.seq AND e.random = em.min)
 )
-insert into contrato(vigencia, clave, empresa_id) select * from shuffled;
+insert into contrato(vigencia, empresa_id) select * from shuffled;
 select * from contrato;
 
 do $$
