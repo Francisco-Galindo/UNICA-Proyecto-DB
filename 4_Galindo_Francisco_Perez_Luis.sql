@@ -84,7 +84,7 @@ select * from contrato_1b;
 
 with datos_contrato_dulce as (
 	select
-	random() * 1000 as precio_dulces,
+	random() * 10000 as precio_dulces,
 	random() * ((select count(dulce_id) from dulce) - 1) as dulce_id,
 	contrato_id
 	from GENERATE_SERIES(0, 10000) seq
