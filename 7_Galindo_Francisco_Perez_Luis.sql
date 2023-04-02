@@ -17,8 +17,6 @@ join contrato_1b_dulce bd on b.contrato_id=bd.contrato_id
 where precio_dulces>5000
 order by precio_dulces asc;
 
-select count(*) as Numero_Tipo_A
-from tipo_A;
-
-select count(*) as Numero_Tipo_B
-from tipo_B;
+select 'B' as tipo, count(*) as numero from tipo_B
+UNION
+select 'C' as tipo, count(*) as numero from tipo_C;
