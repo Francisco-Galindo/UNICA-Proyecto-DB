@@ -38,7 +38,7 @@ create table cuenta_bancaria (
 	constraint empresa_cuenta_fk
 		foreign key (empresa_id)
 		references empresa(empresa_id)
-		on delete restrict on update cascade,
+		on delete cascade on update cascade,
 	constraint cuenta_pk
 		primary key (cuenta_bancaria_id, empresa_id)
 );
@@ -50,7 +50,7 @@ create table contrato (
 	constraint empresa_contrato_fk
 		foreign key (empresa_id)
 		references empresa(empresa_id)
-		on delete restrict on update cascade,
+		on delete cascade on update cascade,
 	constraint contrato_pk
 		primary key (contrato_id)
 );
@@ -61,7 +61,7 @@ create table contrato_1a (
 	constraint contrato_contrato_1a_fk
 		foreign key (contrato_id)
 		references contrato(contrato_id)
-		on delete restrict on update cascade,
+		on delete cascade on update cascade,
 	constraint contrato_1a_pk
 		primary key (contrato_id)
 );
@@ -73,7 +73,7 @@ create table contrato_1b (
 	constraint contrato_contrato_1b_fk
 		foreign key (contrato_id)
 		references contrato(contrato_id)
-		on delete restrict on update cascade,
+		on delete cascade on update cascade,
 	constraint contrato_1b_pk
 		primary key (contrato_id)
 );
@@ -88,11 +88,11 @@ create table maquina (
 	constraint empresa_maquina_fk
 		foreign key (empresa_id)
 		references empresa(empresa_id)
-		on delete restrict on update cascade,
+		on delete cascade on update cascade,
 	constraint contrato_maquina_fk
 		foreign key (contrato_id)
 		references contrato(contrato_id)
-		on delete restrict on update cascade,
+		on delete cascade on update cascade,
 	constraint maquina_pk
 		primary key (maquina_id)
 );
@@ -104,7 +104,7 @@ create table tipo_A (
 	constraint maquina_tipo_A_fk
 		foreign key (maquina_id)
 		references maquina(maquina_id)
-		on delete restrict on update cascade,
+		on delete cascade on update cascade,
 	constraint tipo_A_pk
 		primary key (maquina_id)
 );
@@ -119,7 +119,7 @@ create table tipo_B (
 	constraint maquina_tipo_C_fk
 		foreign key (maquina_id)
 		references maquina(maquina_id)
-		on delete restrict on update cascade,
+		on delete cascade on update cascade,
 	constraint tipo_C_pk
 		primary key (maquina_id)
 );
@@ -135,7 +135,7 @@ create table tipo_C (
 	constraint tipo_C_fk
 		foreign key (maquina_id)
 		references maquina(maquina_id)
-		on delete restrict on update cascade,
+		on delete cascade on update cascade,
 	constraint maquina_tipo_C_pk
 		primary key (maquina_id)
 );
@@ -148,11 +148,11 @@ create table contrato_1b_dulce (
 	constraint contrato_1b_contrato_1b_dulce_fk
 		foreign key (contrato_id)
 		references contrato(contrato_id)
-		on delete restrict on update cascade,
+		on delete cascade on update cascade,
 	constraint dulce_contrato_1b_dulce_fk
 		foreign key (dulce_id)
 		references dulce(dulce_id)
-		on delete restrict on update cascade,
+		on delete cascade on update cascade,
 	constraint contrato_1b_dulce_pk
 		primary key (contrato_1b_dulce_id)
 );
