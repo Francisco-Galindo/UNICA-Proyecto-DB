@@ -28,7 +28,7 @@ class DataBase():
             return None
 
     def generarConsulta(self, query):
-        self.cursor.execute("SELECT * FROM empresa")
+        self.cursor.execute(query)
         resultado = self.cursor.fetchall()
 
         return resultado
