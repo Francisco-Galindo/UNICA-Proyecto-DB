@@ -40,6 +40,8 @@ while True:
     query = input('$ ')
     if query == 'salir':
         break
+    if query.strip() == '':
+        continue
 
     resultado = db.generarConsulta(query)
 
