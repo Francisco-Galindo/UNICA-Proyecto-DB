@@ -2,7 +2,7 @@
 
 from DataBase import *
 
-db = DataBase('postgres', 'mysecretpassword', '127.0.0.1', '6969', 'distromachines')
+db = DataBase('postgres', 'postgres', '127.0.0.1', '5432', 'distromachines')
 
 resultado = db.generarConsulta("select nombre,representante from empresa join maquina \
                on empresa.empresa_id=maquina.empresa_id join tipo_C on \
