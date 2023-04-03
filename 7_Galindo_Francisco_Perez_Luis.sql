@@ -3,7 +3,7 @@ from empresa
 join maquina on empresa.empresa_id=maquina.empresa_id
 join tipo_C on maquina.maquina_id=tipo_C.maquina_id;
 
-select count(b.contrato_id) as numero_contratos_maquina_A /*dudosa*/
+select count(b.contrato_id) as numero_contratos_maquina_A 
 from contrato_1b b
 join contrato c on  b.contrato_id=c.contrato_id
 join maquina m on c.contrato_id=m.contrato_id
