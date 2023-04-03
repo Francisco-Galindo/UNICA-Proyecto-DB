@@ -28,7 +28,11 @@ class DataBase():
             return None
 
     def generarConsulta(self, query):
-        self.cursor.execute(query)
-        resultado = self.cursor.fetchall()
+        try:
+            self.cursor.execute(query)
+            resultado = self.cursor.fetchall()
 
-        return resultado
+            return resultado
+        except (Exception, Error) as error:
+            print("Error al ejecutar consulta: ", error)
+            return None

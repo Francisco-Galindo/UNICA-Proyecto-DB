@@ -31,3 +31,20 @@ resultado = db.generarConsulta("select 'B' as tipo, count(*) as numero from tipo
 for elemento in resultado:
     print("tipo", elemento["tipo"], "\tcantidad:",elemento["numero"] )
 print("\n\n")
+
+
+print("Modo interactivo")
+print("Escribe 'salir' para... salir...")
+query = ""
+while True:
+    query = input('$ ')
+    if query == 'salir':
+        break
+
+    resultado = db.generarConsulta(query)
+
+    if resultado:
+        print("\t".join(resultado[0].keys()))
+        for elemento in resultado:
+            fila = list(map(lambda x: str(x), list(elemento.values())))
+            print("\t".join(fila))
